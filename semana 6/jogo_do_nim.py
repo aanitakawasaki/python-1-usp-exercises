@@ -38,7 +38,7 @@ def computador_escolhe_jogada (n, m):
         sobra_multiplo = sobra % (m + 1) == 0 #25 % 6 != 0 False #False
         nao_sobra_multiplo != sobra_multiplo #se sobra_multiplo é False, nao_sobra_multiplo é True #True
         if nao_sobra_multiplo: #True #True
-            pecas_tiradas = pecas_tiradas - 1 #4 #to meio em dúvida se aqui vai dar 3 mesmo ou se vai continuar dando 4 
+            pecas_tiradas = pecas_tiradas - 1 #4 #to meio em dúvida se aqui vai dar 3 mesmo ou se vai continuar dando 4 (vai dar 3 mesmo, porque não vai puxar o pecas_tiradas = m lá de cima, vai usar o pecas_tiradas do while mesmo!) 
 
         #pecas_tiradas = m - 1
         #n = sobra
