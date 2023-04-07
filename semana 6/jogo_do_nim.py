@@ -29,16 +29,16 @@ esteja dentro de alguma função, coloque-o no final do programa
 
  
 def computador_escolhe_jogada (n, m):
-    pecas_tiradas = m #7 #6 #5 #4
-    sobra = 0 #0 #0 #0 #0 
-    nao_sobra_multiplo = True #True #True #True #True
-    sobra_multiplo = True #True #True #True #True
-    while pecas_tiradas > 1 and sobra_multiplo: #True and True #True and True #True and True #True and True
-        sobra = n - pecas_tiradas #25 #26 #27 #28
-        sobra_multiplo = sobra % (m + 1) == 0 #25 % 8 == 0 dá False #False #False #False
-        nao_sobra_multiplo != sobra_multiplo #se sobra_multiplo é False, nao_sobra_multiplo é True #True #True #True
-        if nao_sobra_multiplo: #True #True #True #True
-            pecas_tiradas = pecas_tiradas - 1 #6 #5 #4 #3 <<<
+    pecas_tiradas = m #5 #aqui vai dar erro, porque não vai puxar o 4 debaixo, vai puxar o 5 do m de novo (ou, na real, nem vai voltar pra cá! vai voltar pro início do while, to achando, viu)
+    sobra = 0 #0  
+    nao_sobra_multiplo = True #True 
+    sobra_multiplo = True #True
+    while pecas_tiradas > 1 and sobra_multiplo: #True and True #então, aqui vai dar errado, porque vai puxar o sobra_multiplo False, preciso mudar isso
+        sobra = n - pecas_tiradas #25
+        sobra_multiplo = sobra % (m + 1) == 0 #25 % 6 != 0 False
+        nao_sobra_multiplo != sobra_multiplo #se sobra_multiplo é False, nao_sobra_multiplo é True
+        if nao_sobra_multiplo: #True
+            pecas_tiradas = pecas_tiradas - 1 #4 
 
         #pecas_tiradas = m - 1
         #n = sobra
@@ -46,7 +46,7 @@ def computador_escolhe_jogada (n, m):
     return pecas_tiradas
 
 #vamos testar com esses valores:
-computador_escolhe_jogada (32, 7)
+computador_escolhe_jogada (30, 5)
     
 """def partida ():
     n = int (input ('Quantas peças? '))
