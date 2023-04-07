@@ -44,25 +44,29 @@ def computador_escolhe_jogada (n, m):
 
     return pecas_tiradas
 
-#vamos testar com esses valores:
-computador_escolhe_jogada (30, 5)
+#vamos testar com esses valores: computador_escolhe_jogada (30, 5)
     
-"""def partida ():
+def partida ():
     n = int (input ('Quantas peças? '))
-    m = int (input ('Limite de peças por jogada? '))
-    if n <= 0:
-        print ('Inválido. O número de peças inicial e o limite de peças por jogada deve ser no mínimo 1')
-        n = int (input ('Quantas peças? '))
-    if m <= 0:
-        print ('Inválido. O número de peças inicial e o limite de peças por jogada deve ser no mínimo 1')
-        m = int (input ('Limite de peças por jogada? '))
-    else:
-        if n % (m+1) == 0:
-            print ('Você começa!')
-        else:
-            print ('Computador começa!')
-            computador_escolhe_jogada (n, m)
 
+    while n <= 0:
+        print ('Inválido. O número de peças inicial deve ser no mínimo 1')
+        n = int (input ('Quantas peças? '))
+        
+    m = int (input ('Limite de peças por jogada? '))
+
+    while m <= 0 or m >= n:
+        print ('Inválido. O limite de peças por jogada deve ser no mínimo 1 e menor que o número de peças inicial')
+        m = int (input ('Limite de peças por jogada? '))
+    
+    if n % (m+1) == 0:
+        print ('Você começa!')
+    else:
+        print ('Computador começa!')
+        computador_escolhe_jogada (n, m)
+
+
+ 
 print ('Bem-vindo ao jogo do NIM! Escolha:')
 print ('1 - para jogar uma partida isolada')
 print ('2 - para jogar um campeonato')
@@ -70,5 +74,6 @@ escolha_digitada = (input ('digite 1 ou 2: '))
 
 if escolha_digitada == '1':
     print ('Você escolheu uma partida isolada!')
+    partida ()
 if escolha_digitada == '2':
-    print ('Você escolheu um campeonato!')"""
+    print ('Você escolheu um campeonato!')
