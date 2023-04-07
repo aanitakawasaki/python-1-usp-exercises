@@ -33,12 +33,12 @@ def computador_escolhe_jogada (n, m):
     sobra = 0 #0  
     nao_sobra_multiplo = True #True 
     sobra_multiplo = True #True
-    while pecas_tiradas > 1 and sobra_multiplo: #True and True #então, aqui vai dar errado, porque vai puxar o sobra_multiplo False, preciso mudar isso
-        sobra = n - pecas_tiradas #25
-        sobra_multiplo = sobra % (m + 1) == 0 #25 % 6 != 0 False
-        nao_sobra_multiplo != sobra_multiplo #se sobra_multiplo é False, nao_sobra_multiplo é True
-        if nao_sobra_multiplo: #True
-            pecas_tiradas = pecas_tiradas - 1 #4 
+    while pecas_tiradas > 1 and nao_sobra_multiplo: #True and True #True and True
+        sobra = n - pecas_tiradas #25 #26
+        sobra_multiplo = sobra % (m + 1) == 0 #25 % 6 != 0 False #False
+        nao_sobra_multiplo != sobra_multiplo #se sobra_multiplo é False, nao_sobra_multiplo é True #True
+        if nao_sobra_multiplo: #True #True
+            pecas_tiradas = pecas_tiradas - 1 #4 #to meio em dúvida se aqui vai dar 3 mesmo ou se vai continuar dando 4 
 
         #pecas_tiradas = m - 1
         #n = sobra
