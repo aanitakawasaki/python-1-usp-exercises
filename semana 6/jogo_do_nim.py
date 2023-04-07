@@ -63,7 +63,9 @@ def partida ():
         print ('Você começa!')
     else:
         print ('Computador começa!')
-        computador_escolhe_jogada (n, m)
+        #computador_escolhe_jogada (n, m) #aqui essa função não é chamada, pois não tem os valores de n e m (que estão fora dessa condição (?))
+        
+    computador_escolhe_jogada (n, m) #aqui essa função até é chamada, pois recebe os valores de n e m, mas o problema é que não dá para eu atrelá-la a uma condição, ela vai ser chamada indepentende das condições acima serem verdadeiras ou falsas. o que fazer?
 
 
  
