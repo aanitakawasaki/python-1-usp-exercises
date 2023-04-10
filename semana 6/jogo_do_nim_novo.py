@@ -160,22 +160,22 @@ def partida ():
 def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sido ela chamada, ela vai vir pra cá com as variáveis que foram trazidos da chamada (totalN e retiradasM, que serão renomeados respectivamente para n e m)
     #print ('como', n, 'não é múltiplo de', m, '+ 1', 'o computador começa jogando - pra tentar mudar isso!')
 
-    #testando com totalN (n) = 34 e retiradasM (m) = 3 (tem que sempre que possível sobrar múltiplos de 4 (que é (m + 1)) / #testando com n = 78 e m = 14 (múltiplos de 15)
-    nAntigo = n #34 / #78
-    controle = 1 #1 / #1
-    while n % (m + 1) != 0 and controle <= m: #True (34 % 4 != 0) and True (1 <= 3) #True (33 % 4 != 0) and True (2 <= 3) #(32 % 4 == 0) False and True (3 <= 3) [desce] / #True and True #True and True #True and True [...] #True and True #True and True #True and False [desce]
-        n = nAntigo  #34 #34 / #78 #78 #78 [...] #78 #78
-        n = n - controle #n = 34 - 1 = 33 #n = 32 / #77 #76 #75 [...] #65 #64 #esse teste tá errado, pois no #75 já seria múltiplo de 15
-        controle = controle + 1 #controle = 2 #controle = 3 / #2 #3 #4 [...] #13 #14 #15
+    #testando com totalN (n) = 34 e retiradasM (m) = 3 (tem que sempre que possível sobrar múltiplos de 4 (que é (m + 1))
+    nAntigo = n #34 
+    controle = 1 #1
+    while n % (m + 1) != 0 and controle <= m: #True (34 % 4 != 0) and True (1 <= 3) #True (33 % 4 != 0) and True (2 <= 3) #(32 % 4 == 0) False and True (3 <= 3) [desce] 
+        n = nAntigo  #34 #34
+        n = n - controle #n = 34 - 1 = 33 #n = 32
+        controle = controle + 1 #controle = 2 #controle = 3
 
     #print ('fazendo a conta (n - 1) até n dar:', n, '(que é múltiplo de', m + 1, ')')
     #return n #porque esse return não funciona?
 
-    pecasRetiradas = nAntigo - n #pecasRetiradas = 34 - 32 = 2 / #pecasRetiradas = 78 - 64 = 14
+    pecasRetiradas = nAntigo - n #pecasRetiradas = 34 - 32 = 2
 
     print ('o computador retirou', pecasRetiradas, 'peça(s)')
     
-    usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (64, 14)
+    usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
 
 def usuario_escolhe_jogada (n, m):
     #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
