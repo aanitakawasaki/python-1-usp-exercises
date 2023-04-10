@@ -180,10 +180,19 @@ def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sid
 def usuario_escolhe_jogada (n, m):
     #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
     print ('o n:', n, 'e o m:', m, 'que vieram pra cá')
-    
+
     nAntigo = n
+    
     pecasRetiradas = int (input ('informe quantas peças você quer retirar: '))
-    #while
+    while pecasRetiradas < 1 or pecasRetiradas > m:
+        print ("Você deve retirar ao menos 1 peça. E você não pode retirar mais peças do que o permitido.")
+        pecasRetiradas = int (input ('informe quantas peças você quer retirar: '))
+
+    n = nAntigo - pecasRetiradas
+
+    print ('o n:', n, 'e o m:', m, 'que irão pra lá')
+
+    computador_escolhe_jogada (n, m)
 
 
 
