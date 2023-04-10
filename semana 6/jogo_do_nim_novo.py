@@ -3,7 +3,7 @@
 .OKcomputador_escolhe_jogada: recebe, como parâmetros, os números n e m descritos acima e devolve um inteiro
 correspondente à próxima jogada do computador (ou seja, quantas peças o computador deve retirar do tabuleiro) de
 acordo com a estratégia vencedora.
-.usuario_escolhe_jogada: recebe os mesmos parâmetros, solicita que o jogador informe sua jogada e verifica se o
+.OKusuario_escolhe_jogada: recebe os mesmos parâmetros, solicita que o jogador informe sua jogada e verifica se o
 valor informado é válido. se o valor informado for válido, a função deve devolvê-lo; caso contrário, deve solicitar
 novamente ao usuário que informe uma jogada válida.
 .partida: não recebe nenhum parâmetro, solicita ao usuário que informe os valores de n e m e inicia o jogo,
@@ -174,8 +174,11 @@ def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sid
     pecasRetiradas = nAntigo - n #pecasRetiradas = 34 - 32 = 2
 
     print ('o computador retirou', pecasRetiradas, 'peça(s)')
-    
-    usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
+
+    if n != 0:
+        usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
+    else:
+        print ('o computador ganhou!')
 
 def usuario_escolhe_jogada (n, m):
     #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
@@ -192,7 +195,10 @@ def usuario_escolhe_jogada (n, m):
 
     print ('o n:', n, 'e o m:', m, 'que irão pra lá')
 
-    computador_escolhe_jogada (n, m)
+    if n != 0:
+        computador_escolhe_jogada (n, m)
+    else:
+        print ('você ganhou!')
 
 
 
