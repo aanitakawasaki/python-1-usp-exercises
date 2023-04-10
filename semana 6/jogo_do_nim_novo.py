@@ -140,7 +140,7 @@ sua vez, não conseguiu evitar que o computador seguisse sua estratégia vencedo
 
 def partida ():
     
-    print ("Vamos começar essa porcaria desse jogo do NIM!")
+    #print ("Vamos começar essa porcaria desse jogo do NIM!")
 
     totalN = int (input ("Qual será a quantidade de peças no tabuleiro? "))
     while totalN < 1:
@@ -182,7 +182,7 @@ def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sid
 
 def usuario_escolhe_jogada (n, m):
     #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
-    print ('o n:', n, 'e o m:', m, 'que vieram pra cá')
+    #print ('o n:', n, 'e o m:', m, 'que vieram pra cá')
 
     nAntigo = n
     
@@ -193,7 +193,7 @@ def usuario_escolhe_jogada (n, m):
 
     n = nAntigo - pecasRetiradas
 
-    print ('o n:', n, 'e o m:', m, 'que irão pra lá')
+    #print ('o n:', n, 'e o m:', m, 'que irão pra lá')
 
     if n != 0:
         computador_escolhe_jogada (n, m)
