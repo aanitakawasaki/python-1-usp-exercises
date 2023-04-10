@@ -1,6 +1,6 @@
 """
 > funções a serem implementadas:
-.computador_escolhe_jogada: recebe, como parâmetros, os números n e m descritos acima e devolve um inteiro
+.OKcomputador_escolhe_jogada: recebe, como parâmetros, os números n e m descritos acima e devolve um inteiro
 correspondente à próxima jogada do computador (ou seja, quantas peças o computador deve retirar do tabuleiro) de
 acordo com a estratégia vencedora.
 .usuario_escolhe_jogada: recebe os mesmos parâmetros, solicita que o jogador informe sua jogada e verifica se o
@@ -12,9 +12,9 @@ jogada inicial deve ser feita em função da estratégia vencedora, como dito an
 impresso na tela o estado atual do jogo, ou seja, quantas peças foram removidas na última jogada e quantas restam
 na mesa. quando a última peça é removida, essa função imprime na tela a mensagem "O computador ganhou!" ou "Você
 ganhou!" conforme o caso.
-> observe que, para isso funcionar, seu programa deve sempre "lembrar" qual é o número de peças atualmente no
+>OK observe que, para isso funcionar, seu programa deve sempre "lembrar" qual é o número de peças atualmente no
 tabuleiro e qual é o máximo de peças a retirar em cada jogada
-> o corretor automático não funciona bem se você tiver alguma chamada a input() antes da definição de todas as
+>OK o corretor automático não funciona bem se você tiver alguma chamada a input() antes da definição de todas as
 funções do jogo (a menos que essa chamada esteja dentro de uma função). se seu programa usar input() sem que ele
 esteja dentro de alguma função, coloque-o no final do programa
 """
@@ -136,3 +136,49 @@ Nesse exemplo, o computador venceu a partida. Ele seguiu a estratégia de deixar
 sua vez, não conseguiu evitar que o computador seguisse sua estratégia vencedora e acabou perdendo a partida.
 
 """
+
+
+def partida ():
+    
+    print ("Vamos começar essa porcaria desse jogo do NIM!")
+
+    totalN = int (input ("Qual será a quantidade de peças no tabuleiro? "))
+    while totalN < 1:
+        print ("Você deve colocar no mínimo 1 peça no tabuleiro!")
+        totalN = int (input ("Qual será a quantidade de peças no tabuleiro? "))
+
+    retiradasM = int (input ("Qual será o número máximo de peças que poderá ser retirado por jogada? "))
+    while retiradasM < 1 or retiradasM > totalN :
+        print ("Você deve permitir a retirada de pelo menos 1 peça do tabuleiro. E não pode permitir a retirada de mais peças do que a quantidade total no tabuleiro")
+        retiradasM = int (input ("Qual será o número máximo de peças que poderá ser retirado por jogada? "))
+
+    if totalN % (retiradasM + 1) == 0:
+        usuario_escolhe_jogada (totalN, retiradasM) #coloquei esses nomes grandões de variáveis acima, pra mostrar que colocada como parâmetro aqui (na chamada), ela não precisa ter o mesmo nome (na função)
+    else:
+        computador_escolhe_jogada (totalN, retiradasM)
+
+def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sido ela chamada, ela vai vir pra cá com as variáveis que foram trazidos da chamada (totalN e retiradasM, que serão renomeados respectivamente para n e m)
+    #print ('como', n, 'não é múltiplo de', m, '+ 1', 'o computador começa jogando - pra tentar mudar isso!')
+
+    retirando = 1
+    nAntigo = n
+    while n % (m + 1) != 0 and retirando <= m and n != 0:
+        n = n - retirando
+
+    #print ('fazendo a conta (n - 1) até n dar:', n, '(que é múltiplo de', m + 1, ')')
+    #return n #porque esse return não funciona?
+
+    pecasRetiradas = nAntigo - n 
+
+    print ('o computador retirou', pecasRetiradas, 'peça(s)')
+    
+    usuario_escolhe_jogada (n, m)
+
+def usuario_escolhe_jogada (n, m):
+    #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
+    print ('o n:', n, 'e o m:', m, 'que vieram pra cá')
+    
+    nAntigo = n
+    pecasRetiradas = int (input ('informe quantas peças você quer retirar: '))
+    while
+    
