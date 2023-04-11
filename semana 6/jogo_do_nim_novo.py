@@ -27,9 +27,61 @@ def partida ():
             print ('Computador começa!')
             computador_escolhe_jogada (n, m)
 
-    else:
-        print ('Você escolheu um campeonato!')
+    elif escolha == 2:
+        campeonato ()
 
+
+
+def computador_escolhe_jogada (n, m):
+
+    nAntigo = n 
+    controle = 1
+    while n % (m + 1) != 0 and controle <= m:  
+        n = nAntigo  
+        n = n - controle 
+        controle = controle + 1 
+
+    pecasRetiradas = nAntigo - n
+
+    print ('O computador tirou', pecasRetiradas, 'peça(s)')
+
+    #return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+
+    if n != 0:
+        print ('Agora restam', n, 'peça(s) no tabuleiro.')
+        usuario_escolhe_jogada (n, m)
+    else:
+        print ('Fim do jogo! O computador ganhou!')
+
+
+
+def usuario_escolhe_jogada (n, m):
+
+    nAntigo = n
+    
+    pecasRetiradas = int (input ('Quantas peças você vai tirar? '))
+    while pecasRetiradas < 1 or pecasRetiradas > m:
+        print ("Oops! Jogada inválida! Tente de novo.")
+        pecasRetiradas = int (input ('Quantas peças você vai tirar? '))
+
+    n = nAntigo - pecasRetiradas
+
+    print ('Você tirou', pecasRetiradas, 'peça(s)')
+
+    if n != 0:
+        print ('Agora restam', n, 'peça(s) no tabuleiro.')
+        computador_escolhe_jogada (n, m)
+    else:
+        print ('Fim do jogo! Você ganhou!')
+
+
+
+def campeonato ():
+    print ('Você escolheu um campeonato!')
+    controle = 1
+    while controle <= 3:
+        print ('*** Rodada', controle, ' ***')
+        
         n = int (input ("Quantas peças? "))
         while n < 1:
             print ("Você deve colocar no mínimo 1 peça no tabuleiro!")
@@ -47,48 +99,11 @@ def partida ():
             print ('Computador começa!')
             computador_escolhe_jogada (n, m)
 
+        controle = controle + 1
 
+    print ('*** Final do campeonato! ***')
 
-def computador_escolhe_jogada (n, m):
-
-    nAntigo = n 
-    controle = 1
-    while n % (m + 1) != 0 and controle <= m:  
-        n = nAntigo  
-        n = n - controle 
-        controle = controle + 1 
-
-    pecasRetiradas = nAntigo - n
-
-    print ('Tirou', pecasRetiradas, 'peça(s)')
-
-    #return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
-
-    if n != 0:
-        usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
-    else:
-        print ('o computador ganhou!')
-
-
-def usuario_escolhe_jogada (n, m):
-    #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
-    #print ('o n:', n, 'e o m:', m, 'que vieram pra cá')
-
-    nAntigo = n
-    
-    pecasRetiradas = int (input ('Informe quantas peças você quer retirar: '))
-    while pecasRetiradas < 1 or pecasRetiradas > m:
-        print ("Você deve retirar ao menos 1 peça. E você não pode retirar mais peças do que o permitido.")
-        pecasRetiradas = int (input ('Informe quantas peças você quer retirar: '))
-
-    n = nAntigo - pecasRetiradas
-
-    #print ('o n:', n, 'e o m:', m, 'que irão pra lá')
-
-    if n != 0:
-        computador_escolhe_jogada (n, m)
-    else:
-        print ('Você ganhou!')
+    #falta o "Placar: Você 0 X 3 Computador", mas como puxar esse número das funções computador_escolhe_jogada e usuario_escolhe_jogada sem sem por meio de um novo parâmetro?
 
 
 
