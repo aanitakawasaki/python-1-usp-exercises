@@ -203,8 +203,12 @@ def computador_escolhe_jogada (n, m):
 
     print ('Tirou', pecasRetiradas, 'peça(s)')
 
-    return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+    #return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
 
+    if n != 0:
+        usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
+    else:
+        print ('o computador ganhou!')
 
 
 def usuario_escolhe_jogada (n, m):
