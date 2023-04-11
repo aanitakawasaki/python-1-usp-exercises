@@ -138,47 +138,74 @@ sua vez, não conseguiu evitar que o computador seguisse sua estratégia vencedo
 """
 
 
+
 def partida ():
-    
-    #print ("Vamos começar essa porcaria desse jogo do NIM!")
 
-    totalN = int (input ("Qual será a quantidade de peças no tabuleiro? "))
-    while totalN < 1:
-        print ("Você deve colocar no mínimo 1 peça no tabuleiro!")
-        totalN = int (input ("Qual será a quantidade de peças no tabuleiro? "))
+    print ('Bem-vindo ao jogo do NIM! Escolha:')
 
-    retiradasM = int (input ("Qual será o número máximo de peças que poderá ser retirado por jogada? "))
-    while retiradasM < 1 or retiradasM > totalN :
-        print ("Você deve permitir a retirada de pelo menos 1 peça do tabuleiro. E não pode permitir a retirada de mais peças do que a quantidade total no tabuleiro")
-        retiradasM = int (input ("Qual será o número máximo de peças que poderá ser retirado por jogada? "))
+    print ('1 - para jogar uma partida isolada')
+    print ('2 - para jogar um campeonato')
 
-    if totalN % (retiradasM + 1) == 0:
-        usuario_escolhe_jogada (totalN, retiradasM) #coloquei esses nomes grandões de variáveis acima, pra mostrar que colocada como parâmetro aqui (na chamada), ela não precisa ter o mesmo nome (na função)
+    escolha = int (input ('digite: '))
+
+    if escolha == 1:
+        print ('Você escolheu uma partida isolada!')
+
+        n = int (input ("Quantas peças? "))
+        while n < 1:
+            print ("Você deve colocar no mínimo 1 peça no tabuleiro!")
+            n = int (input ("Quantas peças? "))
+
+        m = int (input ("Limite de peças por jogada? "))
+        while m < 1 or m > n:
+            print ("Você deve permitir a retirada de pelo menos 1 peça do tabuleiro. E não pode permitir a retirada de mais peças do que a quantidade total no tabuleiro")
+            m = int (input ("Limite de peças por jogada? "))
+
+        if n % (m + 1) == 0:
+            print ('Você começa!')
+            usuario_escolhe_jogada (n, m)
+        else:
+            print ('Computador começa!')
+            computador_escolhe_jogada (n, m)
+
     else:
-        computador_escolhe_jogada (totalN, retiradasM)
+        print ('Você escolheu um campeonato!')
 
-def computador_escolhe_jogada (n, m): #quando executada essa função, tendo sido ela chamada, ela vai vir pra cá com as variáveis que foram trazidos da chamada (totalN e retiradasM, que serão renomeados respectivamente para n e m)
-    #print ('como', n, 'não é múltiplo de', m, '+ 1', 'o computador começa jogando - pra tentar mudar isso!')
+        n = int (input ("Quantas peças? "))
+        while n < 1:
+            print ("Você deve colocar no mínimo 1 peça no tabuleiro!")
+            n = int (input ("Quantas peças? "))
 
-    #testando com totalN (n) = 34 e retiradasM (m) = 3 (tem que sempre que possível sobrar múltiplos de 4 (que é (m + 1))
-    nAntigo = n #34 
-    controle = 1 #1
-    while n % (m + 1) != 0 and controle <= m: #True (34 % 4 != 0) and True (1 <= 3) #True (33 % 4 != 0) and True (2 <= 3) #(32 % 4 == 0) False and True (3 <= 3) [desce] 
-        n = nAntigo  #34 #34
-        n = n - controle #n = 34 - 1 = 33 #n = 32
-        controle = controle + 1 #controle = 2 #controle = 3
+        m = int (input ("Limite de peças por jogada? "))
+        while m < 1 or m > n:
+            print ("Você deve permitir a retirada de pelo menos 1 peça do tabuleiro. E não pode permitir a retirada de mais peças do que a quantidade total no tabuleiro")
+            m = int (input ("Limite de peças por jogada? "))
 
-    #print ('fazendo a conta (n - 1) até n dar:', n, '(que é múltiplo de', m + 1, ')')
-    #return n #porque esse return não funciona?
+        if n % (m + 1) == 0:
+            print ('Você começa!')
+            usuario_escolhe_jogada (n, m) 
+        else:
+            print ('Computador começa!')
+            computador_escolhe_jogada (n, m)
 
-    pecasRetiradas = nAntigo - n #pecasRetiradas = 34 - 32 = 2
 
-    print ('o computador retirou', pecasRetiradas, 'peça(s)')
 
-    if n != 0:
-        usuario_escolhe_jogada (n, m) #usuario_escolhe_jogada (32, 3)
-    else:
-        print ('o computador ganhou!')
+def computador_escolhe_jogada (n, m):
+
+    nAntigo = n 
+    controle = 1
+    while n % (m + 1) != 0 and controle <= m:  
+        n = nAntigo  
+        n = n - controle 
+        controle = controle + 1 
+
+    pecasRetiradas = nAntigo - n
+
+    print ('Tirou', pecasRetiradas, 'peça(s)')
+
+    return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+
+
 
 def usuario_escolhe_jogada (n, m):
     #print ('como', n, 'é múltiplo de', m, '+ 1', 'o usuário pode começar!')
@@ -186,10 +213,10 @@ def usuario_escolhe_jogada (n, m):
 
     nAntigo = n
     
-    pecasRetiradas = int (input ('informe quantas peças você quer retirar: '))
+    pecasRetiradas = int (input ('Informe quantas peças você quer retirar: '))
     while pecasRetiradas < 1 or pecasRetiradas > m:
         print ("Você deve retirar ao menos 1 peça. E você não pode retirar mais peças do que o permitido.")
-        pecasRetiradas = int (input ('informe quantas peças você quer retirar: '))
+        pecasRetiradas = int (input ('Informe quantas peças você quer retirar: '))
 
     n = nAntigo - pecasRetiradas
 
@@ -198,7 +225,7 @@ def usuario_escolhe_jogada (n, m):
     if n != 0:
         computador_escolhe_jogada (n, m)
     else:
-        print ('você ganhou!')
+        print ('Você ganhou!')
 
 
 
