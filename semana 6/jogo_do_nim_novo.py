@@ -45,7 +45,9 @@ def computador_escolhe_jogada (n, m):
 
     print ('O computador tirou', pecasRetiradas, 'peça(s)')
 
-    #return pecasRetiradas #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+    #return pecasRetiradas
+    #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+    #e se eu colocar o return aqui, ele para a função aqui e não vai para o if...else abaixo, né? como devo proceder, ein?
 
     if n != 0:
         print ('Agora restam', n, 'peça(s) no tabuleiro.')
