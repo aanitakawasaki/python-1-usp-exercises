@@ -23,9 +23,24 @@ def partida ():
         if n % (m + 1) == 0:
             print ('Você começa!')
             usuario_escolhe_jogada (n, m)
+
+            while n != 0:
+                computador_escolhe_jogada (n, m)
+                usuario_escolhe_jogada (n, m)
+
+            if n == 0:
+                print ('Fim do jogo! Você ganhou!')
+                
         else:
             print ('Computador começa!')
             computador_escolhe_jogada (n, m)
+
+            while n != 0:
+                usuario_escolhe_jogada (n, m)
+                computador_escolhe_jogada (n, m)
+
+            if n == 0:
+                print ('Fim do jogo! O computador ganhou!')
 
     elif escolha == 2:
         campeonato ()
@@ -45,15 +60,12 @@ def computador_escolhe_jogada (n, m):
 
     print ('O computador tirou', pecasRetiradas, 'peça(s)')
 
-    #return pecasRetiradas
-    #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
-    #e se eu colocar o return aqui, ele para a função aqui e não vai para o if...else abaixo, né? como devo proceder, ein?
+    print ('Agora restam', n, 'peça(s) no tabuleiro.')
 
-    if n != 0:
-        print ('Agora restam', n, 'peça(s) no tabuleiro.')
-        usuario_escolhe_jogada (n, m)
-    else:
-        print ('Fim do jogo! O computador ganhou!')
+    return pecasRetiradas
+    #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
+    #e se eu colocar o return aqui, ele para a função aqui e não vai para o if...else abaixo, né? como devo proceder, ein? coloquei aquele if...else lá pra cima (depois de chamar essa função)
+    #mas jogando essa condição lá pra cima, eu vou ter que usar um while, pra ir alternando e não um if...else
 
 
 
@@ -70,11 +82,9 @@ def usuario_escolhe_jogada (n, m):
 
     print ('Você tirou', pecasRetiradas, 'peça(s)')
 
-    if n != 0:
-        print ('Agora restam', n, 'peça(s) no tabuleiro.')
-        computador_escolhe_jogada (n, m)
-    else:
-        print ('Fim do jogo! Você ganhou!')
+    print ('Agora restam', n, 'peça(s) no tabuleiro.')
+
+    return pecasRetiradas
 
 
 
@@ -96,10 +106,28 @@ def campeonato ():
 
         if n % (m + 1) == 0:
             print ('Você começa!')
-            usuario_escolhe_jogada (n, m) 
+            usuario_escolhe_jogada (n, m)
+
+            while n != 0:
+                print ('Agora restam', n, 'peça(s) no tabuleiro.')
+                computador_escolhe_jogada (n, m)
+                usuario_escolhe_jogada (n, m)
+                
+            if n == 0:
+                print ('Fim do jogo! Você ganhou!')
+                
         else:
             print ('Computador começa!')
             computador_escolhe_jogada (n, m)
+
+            while n != 0:
+                print ('Agora restam', n, 'peça(s) no tabuleiro.')
+                usuario_escolhe_jogada (n, m)
+                computador_escolhe_jogada (n, m)
+
+            if n == 0:
+                print ('Fim do jogo! O computador ganhou!')
+
 
         controle = controle + 1
 
