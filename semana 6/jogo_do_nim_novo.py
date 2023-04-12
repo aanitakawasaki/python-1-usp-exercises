@@ -23,10 +23,19 @@ def partida ():
         if n % (m + 1) == 0:
             print ('Você começa!')
             usuario_escolhe_jogada (n, m)
+            n = n - (usuario_escolhe_jogada (n, m))
+            print ('Você tirou', usuario_escolhe_jogada (n, m), 'peça(s)')
+            print ('Agora restam', n, 'peça(s) no tabuleiro.')
 
             while n != 0:
                 computador_escolhe_jogada (n, m)
+                n = n - (computador_escolhe_jogada (n, m))
+                print ('O computador tirou', computador_escolhe_jogada (n, m), 'peça(s)')
+                print ('Agora restam', n, 'peça(s) no tabuleiro.')
                 usuario_escolhe_jogada (n, m)
+                n = n - (usuario_escolhe_jogada (n, m))
+                print ('Você tirou', usuario_escolhe_jogada (n, m), 'peça(s)')
+                print ('Agora restam', n, 'peça(s) no tabuleiro.')
 
             if n == 0:
                 print ('Fim do jogo! Você ganhou!')
@@ -58,10 +67,6 @@ def computador_escolhe_jogada (n, m):
 
     pecasRetiradas = nAntigo - n
 
-    print ('O computador tirou', pecasRetiradas, 'peça(s)')
-
-    print ('Agora restam', n, 'peça(s) no tabuleiro.')
-
     return pecasRetiradas
     #o return só está aparecendo quando eu executo a função direto do terminal, colocando computador_escolhe_jogada (27, 3), por exemplo. é assim mesmo?
     #e se eu colocar o return aqui, ele para a função aqui e não vai para o if...else abaixo, né? como devo proceder, ein? coloquei aquele if...else lá pra cima (depois de chamar essa função)
@@ -79,10 +84,6 @@ def usuario_escolhe_jogada (n, m):
         pecasRetiradas = int (input ('Quantas peças você vai tirar? '))
 
     n = nAntigo - pecasRetiradas
-
-    print ('Você tirou', pecasRetiradas, 'peça(s)')
-
-    print ('Agora restam', n, 'peça(s) no tabuleiro.')
 
     return pecasRetiradas
 
@@ -138,3 +139,14 @@ def campeonato ():
 
 
 partida ()
+
+
+"""
+*Quando você muda o valor de uma variável que passou como parâmetro dentro de uma função, ao sair da função o valor não é mantido, mas o que
+permanece é o valor original, então é esse o problema. 
+As funções usuario_escolhe_jogada() devem somente ler a jogada do usuário, validar ela e retornar o valor e a computador_escolhe_jogada()
+calcular a jogada do computador e retornar o valor também. Os prints devem ser feitos dentro da função partida, e é nela que você deve
+gerenciar quantas peças estão sobrando no tabuleiro. 
+Ou seja, na função partida() você chama a função para ler a jogada do usuário, e depois subtrai de n o resultado dessa função, e depois chama
+a função para calcular a jogada do computador, e depois subtrai de n o resultado também. 
+"""
