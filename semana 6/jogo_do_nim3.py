@@ -29,8 +29,21 @@ def partida ():
             pecasRetiradas = usuario_escolhe_jogada (n, m)
             print ('Você tirou', pecasRetiradas, 'peça(s)')
             n = n - pecasRetiradas
-            print ('Agora restam', n, 'peça(s) no tabuleiro.')
-            
+            print ('Agora restam', n, 'peça(s) no tabuleiro')
+            usuario_joga = False
+
+            pecasRetiradas = computador_escolhe_jogada (n, m)
+            print ('O computador retirou', pecasRetiradas, 'peça(s)')
+            n = n - pecasRetiradas
+            print ('Agora restam', n, 'peça(s) no tabuleiro')
+            usuario_joga = True
+
+        if n == 0 and usuario_joga:
+            print ('Fim do jogo! o computador ganhou!')
+
+    else:
+        print ('Computador começa!')
+
 
 
 def usuario_escolhe_jogada (n, m):
@@ -40,6 +53,21 @@ def usuario_escolhe_jogada (n, m):
         print ("Oops! Jogada inválida! Tente de novo.")
         pecasRetiradas = int (input ('Quantas peças você vai tirar? '))
     
+    return pecasRetiradas
+
+
+
+def computador_escolhe_jogada (n, m):
+
+    nAntigo = n 
+    controle = 1
+    while n % (m + 1) != 0 and controle <= m:  
+        n = nAntigo  
+        n = n - controle 
+        controle = controle + 1 
+
+    pecasRetiradas = nAntigo - n
+
     return pecasRetiradas
 
 
