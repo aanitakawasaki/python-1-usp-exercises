@@ -21,28 +21,31 @@ def partida ():
 
     if n % (m + 1) == 0:
         print ('Você começa!')
-        
-        while n != 0:
-            '''aqui eu não preciso chamar a função usuario_escolhe_jogada (n, m) e depois atribuir
-            usuario_escolhe_jogada (n, m) à pecasRetiradas, como eu estava fazendo, só fazer essa atribuição,
-            como abaixo, já basta, afinal*'''
-            pecasRetiradas = usuario_escolhe_jogada (n, m)
-            print ('Você tirou', pecasRetiradas, 'peça(s)')
-            n = n - pecasRetiradas
-            print ('Agora restam', n, 'peça(s) no tabuleiro')
-            usuario_joga = False
-
-            pecasRetiradas = computador_escolhe_jogada (n, m)
-            print ('O computador retirou', pecasRetiradas, 'peça(s)')
-            n = n - pecasRetiradas
-            print ('Agora restam', n, 'peça(s) no tabuleiro')
-            usuario_joga = True
-
-        if n == 0 and usuario_joga:
-            print ('Fim do jogo! o computador ganhou!')
-
+        #>>>
     else:
         print ('Computador começa!')
+        #>>>
+        
+    while n != 0:
+        #>>>
+        '''aqui eu não preciso chamar a função usuario_escolhe_jogada (n, m) e depois atribuir
+        usuario_escolhe_jogada (n, m) à pecasRetiradas, como eu estava fazendo, só fazer essa atribuição,
+        como abaixo, já basta, afinal*'''
+        pecasRetiradas = usuario_escolhe_jogada (n, m)
+        print ('Você tirou', pecasRetiradas, 'peça(s)')
+        n = n - pecasRetiradas
+        print ('Agora restam', n, 'peça(s) no tabuleiro')
+        usuario_joga = False
+
+        #>>>
+        pecasRetiradas = computador_escolhe_jogada (n, m)
+        print ('O computador retirou', pecasRetiradas, 'peça(s)')
+        n = n - pecasRetiradas
+        print ('Agora restam', n, 'peça(s) no tabuleiro')
+        usuario_joga = True
+
+    if n == 0 and usuario_joga:
+        print ('Fim do jogo! O computador ganhou!')
 
 
 
