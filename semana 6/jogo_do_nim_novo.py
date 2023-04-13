@@ -22,34 +22,51 @@ def partida ():
 
         if n % (m + 1) == 0:
             print ('Você começa!')
-            usuario_escolhe_jogada (n, m)
-            n = n - (usuario_escolhe_jogada (n, m))
-            print ('Você tirou', usuario_escolhe_jogada (n, m), 'peça(s)')
-            print ('Agora restam', n, 'peça(s) no tabuleiro.')
-
-            while n != 0:
-                computador_escolhe_jogada (n, m)
-                n = n - (computador_escolhe_jogada (n, m))
-                print ('O computador tirou', computador_escolhe_jogada (n, m), 'peça(s)')
-                print ('Agora restam', n, 'peça(s) no tabuleiro.')
-                usuario_escolhe_jogada (n, m)
-                n = n - (usuario_escolhe_jogada (n, m))
-                print ('Você tirou', usuario_escolhe_jogada (n, m), 'peça(s)')
-                print ('Agora restam', n, 'peça(s) no tabuleiro.')
-
-            if n == 0:
+            while n > 0:
+                usuario_joga = True
+                if usuario_joga:
+                    usuario_escolhe_jogada (n, m)
+                    pecasRetiradas = usuario_escolhe_jogada (n, m)
+                    n = n - pecasRetiradas
+                    print ('Você tirou', pecasRetiradas, 'peça(s)')
+                    print ('Agora restam', n, 'peça(s) no tabuleiro.')
+                    usuario_joga = False
+                else:
+                    computador_escolhe_jogada (n, m)
+                    pecasRetiradas = computador_escolhe_jogada (n, m)
+                    n = n - pecasRetiradas
+                    print ('Você tirou', pecasRetiradas, 'peça(s)')
+                    print ('Agora restam', n, 'peça(s) no tabuleiro.')
+        
+            if n == 0 and usuario_joga == False:
                 print ('Fim do jogo! Você ganhou!')
+
+            elif n == 0 and usuario_joga == True:
+                print ('Fim do jogo! O computador ganhou!')
                 
         else:
             print ('Computador começa!')
-            computador_escolhe_jogada (n, m)
+            while n > 0:
+                computador_joga = True
+                if computador_joga:
+                    computador_escolhe_jogada (n, m)
+                    pecasRetiradas = computador_escolhe_jogada (n, m)
+                    n = n - pecasRetiradas
+                    print ('Você tirou', pecasRetiradas, 'peça(s)')
+                    print ('Agora restam', n, 'peça(s) no tabuleiro.')
+                    computador_joga = False
+                else:
+                    usuario_escolhe_jogada (n, m)
+                    pecasRetiradas = usuario_escolhe_jogada (n, m)
+                    n = n - pecasRetiradas
+                    print ('Você tirou', pecasRetiradas, 'peça(s)')
+                    print ('Agora restam', n, 'peça(s) no tabuleiro.')
 
-            while n != 0:
-                usuario_escolhe_jogada (n, m)
-                computador_escolhe_jogada (n, m)
-
-            if n == 0:
+            if n == 0 and computador_joga == False:
                 print ('Fim do jogo! O computador ganhou!')
+
+            elif n == 0 and computador_joga == True:
+                print ('Fim do jogo! Você ganhou!')
 
     elif escolha == 2:
         campeonato ()
@@ -82,8 +99,6 @@ def usuario_escolhe_jogada (n, m):
     while pecasRetiradas < 1 or pecasRetiradas > m:
         print ("Oops! Jogada inválida! Tente de novo.")
         pecasRetiradas = int (input ('Quantas peças você vai tirar? '))
-
-    n = nAntigo - pecasRetiradas
 
     return pecasRetiradas
 
