@@ -7,7 +7,7 @@ while printandoAltura <= altura:
     while printandoLargura <= largura:
         print ('#', end = '')
         printandoLargura = printandoLargura + 1
-    print (' ')
+    print ('',end = '\n')
     printandoAltura = printandoAltura + 1
 
 

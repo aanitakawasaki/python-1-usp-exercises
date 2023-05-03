@@ -11,7 +11,7 @@ if printandoAltura == 1: #True
     while printandoLargura <= largura: # 1 <= 4 True #True #True #True #False
         print ('#', end = '') #***
         printandoLargura = printandoLargura + 1 #2 #3 #4 #5
-    print (' ') #vai pra linha debaixo
+    print ('',end = '\n') #vai pra linha debaixo
     printandoAltura = printandoAltura + 1 #2 
 
 while printandoAltura < altura: #2 < 3 True
@@ -24,9 +24,9 @@ while printandoAltura < altura: #2 < 3 True
             print ('', end = ' ') #***
             printandoLargura = printandoLargura + 1 #3 #4
         if printandoLargura == largura: #False # 4 == 4 True
-            print ('#', end = ' ')#***
+            print ('#', end = '')#***
             printandoLargura = printandoLargura + 1 #5
-    print (' ') #vai pra linha debaixo
+    print ('',end = '\n') #vai pra linha debaixo
     printandoAltura = printandoAltura + 1 #3
 
 if printandoAltura == altura: #3 == 3 True
@@ -34,7 +34,7 @@ if printandoAltura == altura: #3 == 3 True
     while printandoLargura <= largura: #1 <= 4 True #True #True #True #False
         print ('#', end = '') #***
         printandoLargura = printandoLargura + 1 #2 #3 #4 #5 
-    print (' ') #vai pra linha debaixo
+    print ('',end = '\n') #vai pra linha debaixo
 
 
 
