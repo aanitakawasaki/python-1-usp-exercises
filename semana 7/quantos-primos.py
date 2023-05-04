@@ -1,13 +1,12 @@
 def ePrimo (n):
-#testando com n = 9:
-    ePrimo = True #True
-    divisor = n - 1 #9 - 1 = 8
-    while divisor > 1 and ePrimo: #True #True #True #True #True #True
-        if n % divisor != 0: #9 % 8 != 0 True #True #True #True #True #9 % 3 != 0 False
-            ePrimo = True #True #True #True #True #True
-            divisor = divisor - 1 #8 - 1 = 7 #6 #5 #4 #3
+    ePrimo = True
+    divisor = n - 1
+    while divisor > 1 and ePrimo:
+        if n % divisor != 0:
+            ePrimo = True
+            divisor = divisor - 1
         else:
-            ePrimo = False #False
+            ePrimo = False
 
     if ePrimo:
         return True
