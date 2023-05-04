@@ -22,7 +22,8 @@ def verificaEPrimo (n):
     while numeroAtual >= 2:
         #vai verificando se cada um desses "numeroAtual" é primo
         if ePrimo (numeroAtual):
-            return True
+            quantidadePrimos = quantidadePrimos + 1 #>>>isso tá dando errado, porque essa variável fica dentro dessa função e quando ela é encerrada, ela se perde (?)
+            return True #o return finaliza a função
         else:
             return False
 
