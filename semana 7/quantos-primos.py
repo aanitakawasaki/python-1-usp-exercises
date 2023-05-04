@@ -15,34 +15,19 @@ def ePrimo (n):
 
 
 
-def verificaEPrimo (n):
-    #vai passando de numeroDigitado até 2 (subtraindo de 1 em 1):
-    numeroAtual = n
-    quantidadePrimos = 0
-    while numeroAtual >= 2:
-        #vai verificando se cada um desses "numeroAtual" é primo
-        if ePrimo (numeroAtual):
-            quantidadePrimos = quantidadePrimos + 1 #>>>isso tá dando errado, porque essa variável fica dentro dessa função e quando ela é encerrada, ela se perde (?)
-            return True #o return finaliza a função
-        else:
-            return False
-
-        numeroAtual = numeroAtual - 1
-    #retorna a quantidade de números primos dentro daquele número:
-    return quantidadePrimos
-
-
-
 #recebe o número:
 numeroDigitado = int (input ("digite um número maior ou igual a 2: "))
 while numeroDigitado < 2:
     numeroDigitado = int (input ("digite um número maior ou igual a 2: "))
-    verificaEPrimo (numeroDigitado)
-    
-#soma a quantidade de números primos
-primos = 0
-while verificaEPrimo (numeroDigitado):
-    primos = primos + 1
 
-print (primos)
+#vai passando de numeroDigitado até 2 (subtraindo de 1 em 1):
+numeroAtual = numeroDigitado
+quantidadePrimos = 0
+while numeroAtual >= 2:
+    #vai verificando se cada um desses "numeroAtual" é primo
+    if ePrimo (numeroAtual):
+        quantidadePrimos = quantidadePrimos + 1    
+    numeroAtual = numeroAtual - 1
     
+#printa a quantidade de números primos dentro daquele número:
+print (quantidadePrimos)
