@@ -9,8 +9,9 @@ def é_hipotenusa (n):
         catetoB = 1 #1 #1
         while catetoB <= n: #1 <= 5 True #2 <= 5True [...] #True #False #True #True
             if catetoA ** 2 + catetoB ** 2 == n ** 2: #1 ** 2 + 1 ** 2 == 25 False #1 ** 2 + 2 ** 2 == 25 False #False #2 ** 2 + 1 ** 2 == 25 False #False
-                print (catetoA ** 2, "+", catetoB ** 2, "=", catetoA ** 2 + catetoB ** 2) 
-                print ("é a hipotenusa de algum triângulo retângulo com lados de comprimento inteiro")
+                #print (catetoA ** 2, "+", catetoB ** 2, "=", catetoA ** 2 + catetoB ** 2) 
+                #print ("é a hipotenusa de algum triângulo retângulo com lados de comprimento inteiro")
+                return True
             catetoB = catetoB + 1 #1 + 1 = 2 [...] #5 #6 #2 [...] PAREI AQUI
         catetoA = catetoA + 1 #1 + 1 = 2
 
@@ -22,4 +23,8 @@ numeroDigitado = (int (input ("digite um número inteiro positivo: ")))
 while numeroDigitado <= 0:
     numeroDigitado = (int (input ("digite um número inteiro positivo: ")))
 
-é_hipotenusa (numeroDigitado)
+numeroAtual = 1
+while numeroAtual <= numeroDigitado:
+    if é_hipotenusa (numeroAtual):
+        print (numeroAtual)
+    numeroAtual = numeroAtual + 1
