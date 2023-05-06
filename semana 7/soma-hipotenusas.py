@@ -15,16 +15,19 @@ def é_hipotenusa (n):
             catetoB = catetoB + 1 #1 + 1 = 2 [...] #5 #6 #2 [...] PAREI AQUI
         catetoA = catetoA + 1 #1 + 1 = 2
 
-#def soma_hipotenusas (n):
 
 
-    
+def soma_hipotenusas (n):
+    numeroAtual = 1
+    while numeroAtual <= numeroDigitado:
+        if é_hipotenusa (numeroAtual):
+            print (numeroAtual)
+        numeroAtual = numeroAtual + 1
+
+
+
 numeroDigitado = (int (input ("digite um número inteiro positivo: ")))
 while numeroDigitado <= 0:
     numeroDigitado = (int (input ("digite um número inteiro positivo: ")))
 
-numeroAtual = 1
-while numeroAtual <= numeroDigitado:
-    if é_hipotenusa (numeroAtual):
-        print (numeroAtual)
-    numeroAtual = numeroAtual + 1
+soma_hipotenusas (numeroDigitado)
