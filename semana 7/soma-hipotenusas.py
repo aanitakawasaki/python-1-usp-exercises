@@ -3,15 +3,16 @@
 # 10² = 6² + 8² (hip = 10; catA = 6; catB = 8)
 
 def é_hipotenusa (n):
-    catetoA = 1
-    while catetoA <= n: 
-        catetoB = 1 
-        while catetoB <= n: 
-            if catetoA ** 2 + catetoB ** 2 == n ** 2:
-                print (catetoA ** 2, "+", catetoB ** 2, "=", catetoA ** 2 + catetoB ** 2)
-                print ("hipotenusa")
-            catetoB = catetoB + 1 
-        catetoA = catetoA + 1 
+    #sendo n = 5
+    catetoA = 1 #1
+    while catetoA <= n: #1 <= 5 True #2 <= 5 True
+        catetoB = 1 #1 #1
+        while catetoB <= n: #1 <= 5 True #2 <= 5True [...] #True #False #True #True
+            if catetoA ** 2 + catetoB ** 2 == n ** 2: #1 ** 2 + 1 ** 2 == 25 False #1 ** 2 + 2 ** 2 == 25 False #False #2 ** 2 + 1 ** 2 == 25 False #False
+                print (catetoA ** 2, "+", catetoB ** 2, "=", catetoA ** 2 + catetoB ** 2) 
+                print ("é a hipotenusa de algum triângulo retângulo com lados de comprimento inteiro")
+            catetoB = catetoB + 1 #1 + 1 = 2 [...] #5 #6 #2 [...] PAREI AQUI
+        catetoA = catetoA + 1 #1 + 1 = 2
 
 #def soma_hipotenusas (n):
 
