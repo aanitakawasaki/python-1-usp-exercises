@@ -19,10 +19,14 @@ def é_hipotenusa (n):
 
 def soma_hipotenusas (n):
     numeroAtual = 1
+    soma = 0
     while numeroAtual <= numeroDigitado:
         if é_hipotenusa (numeroAtual):
-            print (numeroAtual)
+            #print (numeroAtual)
+            soma = soma + numeroAtual #era só fazer isso (que eu sempre faço) e colocar a variável soma pra fora desse if (pra não zerar toda vez que retomar a função)
         numeroAtual = numeroAtual + 1
+    print (soma)
+    return soma
 
 
 
