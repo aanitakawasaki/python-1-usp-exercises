@@ -1,9 +1,9 @@
 def remove_repetidos (lista):
-    tamanho_lista = len (lista) #5
-    ultimo_indice = tamanho_lista - 1 #4
+    tamanho_lista = len (lista)
+    ultimo_indice = tamanho_lista - 1
 
-    indice = 0 #0
-    indice_b = indice + 1 #1
+    indice = 0
+    indice_b = indice + 1
     while indice < ultimo_indice:
         while indice_b <= ultimo_indice:
             if lista [indice] != lista [indice_b]:
@@ -14,7 +14,11 @@ def remove_repetidos (lista):
                 ultimo_indice = ultimo_indice - 1
                 
         indice = indice + 1
-        indice_b = indice + 1 
+        indice_b = indice + 1
+
+    lista.sort()
+    #print (lista)
+    return (lista)
 
 
         
