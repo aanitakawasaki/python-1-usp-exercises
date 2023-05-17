@@ -4,7 +4,7 @@ def maior_elemento (lista):
     ultimo_indice = tamanho_lista - 1 #4
 
     indice = 0 #0
-    maior_elemento = 0 #0
+    maior_elem = 0 #0
     while indice <= ultimo_indice: #0 <= 4 True #1 <= 4 True #2 <= 4 True # 3 <= 4 True #4 <= 4 True #5 <= 4 False
         if maior_elem < lista [indice]: #0 < 5 True #5 < 7 True #7 < 3 False #7 < 2 False #7 < 120 True
             maior_elem = lista [indice] #5 #7 #120
@@ -13,7 +13,8 @@ def maior_elemento (lista):
             
         indice = indice + 1 #1 #2 #3 #4 #5
 
-    print (maior_elem)
+    #print (maior_elem)
+    return maior_elem
 
 
 
